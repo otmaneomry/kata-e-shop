@@ -1,11 +1,7 @@
-INSERT INTO products (
-    id, code, name, description, image,
-    category, price, quantity, internal_reference, shell_id,
-    inventory_status, rating, created_at, updated_at
-)
-VALUES
-    (
-        1,
+INSERT INTO products (id, code, name, description, image,
+                      category, price, quantity, internal_reference, shell_id,
+                      inventory_status, rating, created_at, updated_at)
+VALUES (1,
         'product-1',
         'Gaming Laptop',
         'High-performance gaming laptop with RTX 3080',
@@ -18,17 +14,12 @@ VALUES
         'INSTOCK',
         4.5,
         1708637416000,
-        1708637416000
-    );
+        1708637416000);
 
-INSERT INTO products (
-    id, code, name, description, image,
-    category, price, quantity, internal_reference, shell_id,
-    inventory_status, rating, created_at, updated_at
-)
-VALUES
-    (
-        2,
+INSERT INTO products (id, code, name, description, image,
+                      category, price, quantity, internal_reference, shell_id,
+                      inventory_status, rating, created_at, updated_at)
+VALUES (2,
         'product-2',
         'Wireless Headphones',
         'Noise-cancelling Bluetooth headphones',
@@ -41,17 +32,12 @@ VALUES
         'LOWSTOCK',
         4.8,
         1708637416000,
-        1708637416000
-    );
+        1708637416000);
 
-INSERT INTO products (
-    id, code, name, description, image,
-    category, price, quantity, internal_reference, shell_id,
-    inventory_status, rating, created_at, updated_at
-)
-VALUES
-    (
-        3,
+INSERT INTO products (id, code, name, description, image,
+                      category, price, quantity, internal_reference, shell_id,
+                      inventory_status, rating, created_at, updated_at)
+VALUES (3,
         'product-3',
         '4K Monitor',
         '32-inch 4K Ultra HD Monitor',
@@ -64,5 +50,4 @@ VALUES
         'OUTOFSTOCK',
         4.6,
         1708637416000,
-        1708637416000
-    );
+        1708637416000);

@@ -1,6 +1,10 @@
 package com.carrefour.kata.model;
+
 import jakarta.persistence.*;
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Entity
 @Table(name = "products")
@@ -28,7 +32,6 @@ public class Product {
     private InventoryStatus inventoryStatus;
 
     private Double rating;
-
     private Long createdAt;
     private Long updatedAt;
 
