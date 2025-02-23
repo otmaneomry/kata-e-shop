@@ -52,3 +52,17 @@ export interface ProductsState {
     loading: boolean;
     error: string | null;
 }
+
+export interface PageResponse<T> {
+    content: T[];
+    pageable: {
+        pageNumber: number;
+        pageSize: number;
+        offset: number;
+    };
+    totalPages: number;
+    totalElements: number;
+    size: number;
+    number: number;
+    numberOfElements: number;
+}

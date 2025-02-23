@@ -2,6 +2,8 @@ package com.carrefour.kata.service;
 
 import com.carrefour.kata.model.Product;
 import com.carrefour.kata.repository.ProductRepository;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -16,7 +18,7 @@ public class ProductServiceImpl implements ProductService {
     }
 
     @Override
-    public List<Product> findAllProducts() {
-        return productRepo.findAll();
+    public Page<Product> findAllProducts(Pageable pageable) {
+        return productRepo.findAll(pageable);
     }
 }
