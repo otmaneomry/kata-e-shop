@@ -1,18 +1,23 @@
-// src/features/products/productsSlice.ts
-import {createAsyncThunk, createSlice} from '@reduxjs/toolkit';
-import {productsApi} from '../services/api/products.ts';
-import {ProductsState} from "../types";
+import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
+import { productsApi } from '../services/api/products.ts';
+import { ProductsState } from "../types";
+
+interface ProductsPageParams {
+    page?: number;
+    size?: number;
+}
 
 const initialState: ProductsState = {
     items: [],
     loading: false,
     error: null,
+    pagination: null
 };
 
 export const fetchProducts = createAsyncThunk(
     'products/fetchProducts',
-    async () => {
-        return await productsApi.getAll();
+    async ({ page = 0, size = 6 }: ProductsPageParams = {}) => {
+        return await productsApi.getAll(page, size);
     }
 );
 
@@ -27,7 +32,8 @@ const productsSlice = createSlice({
                 state.error = null;
             })
             .addCase(fetchProducts.fulfilled, (state, action) => {
-                state.items = action.payload;
+                state.items = action.payload.content;
+                state.pagination = action.payload;
                 state.loading = false;
             })
             .addCase(fetchProducts.rejected, (state, action) => {

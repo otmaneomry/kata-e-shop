@@ -51,6 +51,7 @@ export interface ProductsState {
     items: Product[];
     loading: boolean;
     error: string | null;
+    pagination: PageResponse<Product> | null;
 }
 
 export interface PageResponse<T> {
