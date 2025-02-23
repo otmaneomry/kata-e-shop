@@ -8,6 +8,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 import java.time.Instant;
+import java.util.Random;
 
 @Configuration
 public class DataInitializer {
@@ -16,12 +17,14 @@ public class DataInitializer {
     CommandLineRunner initData(ProductRepository productRepo) {
         return args -> {
             if (productRepo.count() == 0) {
-                for (int i = 1; i <= 10; i++) {
+                Random random = new Random();
+                for (int i = 1; i <= 15; i++) {
+                    int randomId = random.nextInt(100) + 1;
                     Product p = Product.builder()
                             .code("product-" + i)
                             .name("Product " + i)
                             .description("Description for product " + i)
-                            .image("https://picsum.photos/id/" + i + "/300/200")
+                            .image("https://picsum.photos/id/" + randomId + "/300/200")
                             .category(i % 2 == 0 ? "electronics" : "accessories")
                             .price(100.0 + i * 10)
                             .quantity(5 + i)

@@ -2,33 +2,28 @@ import React from 'react';
 import {Link} from 'react-router-dom';
 import {useCart} from '../hooks/useCart';
 import {CartItem} from '../components/ui/CartItem.tsx';
-import {API_CONFIG} from "../config/api.config.ts";
 import {ordersApi} from "../services/api/orders.ts";
 
 const CartPage: React.FC = () => {
     const {items, getTotalPrice, resetCart} = useCart();
 
     const handleCheckout = async () => {
-        if (API_CONFIG.useMockApi) {
-            alert('Redirection To Checkout Page (mock mode)');
-        } else {
-            try {
-                const orderPayload = {
-                    createdAt: new Date().toISOString(),
-                    items: items.map(item => ({
-                        productId: item.id,
-                        quantity: item.cartQuantity,
-                        price: item.price
-                    }))
-                };
+        try {
+            const orderPayload = {
+                createdAt: new Date().toISOString(),
+                items: items.map(item => ({
+                    productId: item.id,
+                    quantity: item.cartQuantity,
+                    price: item.price
+                }))
+            };
 
-                const order = await ordersApi.create(orderPayload);
-                alert(`Order created with success ${JSON.stringify(order)}`);
-                console.log('Order created with success', order);
-            } catch (error) {
-                console.error('Error creating order:', error);
-                alert('Failed to create order. See console for details.');
-            }
+            const order = await ordersApi.create(orderPayload);
+            alert(`Order created with success ${JSON.stringify(order)}`);
+            console.log('Order created with success', order);
+        } catch (error) {
+            console.error('Error creating order:', error);
+            alert('Failed to create order. See console for details.');
         }
 
         setTimeout(() => {
