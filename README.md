@@ -7,4 +7,4 @@ Ce projet contient deux parties :
 ## Application en ligne
 
 L'application est déployée sur Vercel et est accessible ici :  
-[https://kata-ecommerce.vercel.app](https://kata-ecommerce.vercel.app).  
+[https://kata-e-shop.vercel.app](https://kata-e-shop.vercel.app).  
